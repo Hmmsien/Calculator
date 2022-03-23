@@ -6,7 +6,7 @@ First get input equation from user. Then create a header file(infixToPostfix.h) 
 Calculate the postfix equation using stack and push result step by step\
 Finally output the top of stack which store the final result.
 
-### Dependencies 
+# Dependencies 
 
 You must have the following installed. The linux commands to install necessary packages shown below: 
 
@@ -20,7 +20,7 @@ You must have the following installed. The linux commands to install necessary p
   sudo apt-get install build-essential
   ```
 
-### Run
+# Run
 git clone this repo\
 To run proj1 make sure you are in the root of the project repository and run `make lab2`.\ 
 after program display "Enter your equation: "\

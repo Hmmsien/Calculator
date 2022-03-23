@@ -21,8 +21,8 @@ You must have the following installed. The linux commands to install necessary p
   ```
 
 # Run
-git clone this repo\
-To run proj1 make sure you are in the root of the project repository and run `make lab2`.\ 
+git clone git@github.com:Hmmsien/Calculator.git\
+To run this project: make sure you are in the root of the project repository and run `make lab2`.\ 
 after program display "Enter your equation: "\
 enter your equation through input\
 hit enter to get the result

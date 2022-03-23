@@ -1,6 +1,11 @@
 # Calculator
 The Calculator program is written in C++. The program provides standard calculator functionality. Basically get a equation from user input. Then output the result for user.
 
+# Project Description
+First get input equation from user. Then create a header file(infixToPostfix.h) to convert equation to postfix format using stack.\
+Calculate the postfix equation using stack and push result step by step\
+Finally output the top of stack which store the final result.
+
 # Getting started
 git clone this repo\
 run command "make lab2" on terminal to excute the program\

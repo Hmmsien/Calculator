@@ -28,17 +28,20 @@ enter your equation through input\
 hit enter to get the result\
 
 # Test code
+```sh
 $ make lab2\
 g++ calculator.cpp -o calculator && ./calculator\
 Enter your equation: \
 6+4*10-7\
 The result of the equation is: 39\
-
+```
+```sh
 $ make lab2\
 g++ calculator.cpp -o calculator && ./calculator\
 Enter your equation:\
 5^2+11\
 The result of the equation is: 36\
+```
 
 # Tech/Framework used
 Understanding how stack WORK.\

@@ -2,7 +2,7 @@
 #include <cstring>
 #include <bits/stdc++.h>
 #include <math.h>
-#include "infixToPostfix.cpp"
+#include "infixToPostfix.h"
 using namespace std;
 
 //enum class Operation { Add, Subtract, Multiply, Divide };

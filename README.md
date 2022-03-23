@@ -6,9 +6,23 @@ First get input equation from user. Then create a header file(infixToPostfix.h) 
 Calculate the postfix equation using stack and push result step by step\
 Finally output the top of stack which store the final result.
 
-# Getting started
+### Dependencies 
+
+You must have the following installed. The linux commands to install necessary packages shown below: 
+
+* GNU AWK
+  ```sh
+  sudo apt-get update
+  sudo apt-get install gawk
+  ```
+* GNU Make
+  ```sh
+  sudo apt-get install build-essential
+  ```
+
+### Run
 git clone this repo\
-run command "make lab2" on terminal to excute the program\
+To run proj1 make sure you are in the root of the project repository and run `make lab2`.\ 
 after program display "Enter your equation: "\
 enter your equation through input\
 hit enter to get the result\

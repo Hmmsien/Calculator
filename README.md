@@ -10,11 +10,6 @@ Finally output the top of stack which store the final result.
 
 You must have the following installed. The linux commands to install necessary packages shown below: 
 
-* GNU AWK
-  ```sh
-  sudo apt-get update
-  sudo apt-get install gawk
-  ```
 * GNU Make
   ```sh
   sudo apt-get install build-essential

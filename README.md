@@ -1,5 +1,5 @@
 # Calculator
-The Calculator program is written in C++. The program provides standard calculator functionality. Basically get a equation from user input. Then output the result for user.
+A user-defined calculator struct type written in C++. The program provides standard calculator functionality to solve the equation which End-user input into program.
 
 # Project Description
 First get input equation from user. Then create a header file(infixToPostfix.h) to convert equation to postfix format using stack.\

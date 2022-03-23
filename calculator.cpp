@@ -10,49 +10,64 @@ using namespace std;
 struct Calculator {
 
     int calculate(string post_equation) {
-        stack <int> stack;
+        stack <int> mystack;
 
         // loop to iterate through the equation
-        for (int i = 0; i < post_equation.length(); i++)
+        for (int i = 0; i < post_equation.length()-1; i++)
         {
-            // if the character is an operand we push it in the stack
-            // we have considered single digits only here
-            if ( post_equation[i] >= '0' &&  post_equation[i] <= '9')
-            {
-                stack.push( post_equation[i] - '0');
+            //if the character is blank space then continue
+            if(post_equation[i] == ' ') {
+                continue;
             }
-            // if the character is an operator we enter else block
+            // if the character is an operand we push it in the stack
+            else if (isdigit(post_equation[i]))
+        {
+                int num=0;
+             
+                //extract full number
+                while(isdigit(post_equation[i]))
+                {
+                    num = num * 10 + (int)(post_equation[i] - '0');
+                    i++;
+                }
+                i--;
+            
+                //push the element in the stack
+                mystack.push(num);
+            }
+            // if the character is an operator 
             else
             {
                 // pop the top two elements from the stack and save them in two integers
-                int x = stack.top();
-                stack.pop();
-                int y = stack.top();
-                stack.pop();
+                int x = mystack.top();
+                mystack.pop();
+                int y = mystack.top();
+                mystack.pop();
             
-            //switch statement for operators
-            switch (post_equation[i])
-            {
-                case '+': // addition
-                          stack.push(y + x);
+                //switch statement for operators
+                switch (post_equation[i])
+                {
+                    case '+': // addition
+                          mystack.push(y + x);
                           break;
-                case '-': // subtraction
-                          stack.push(y - x);
+                    case '-': // subtraction
+                          mystack.push(y - x);
                           break;
-                case '*': // multiplication
-                          stack.push(y * x);
+                    case '*': // multiplication
+                          mystack.push(y * x);
                           break;
-                case '/': // division
-                          stack.push(y / x);
+                    case '/': // division
+                          mystack.push(y / x);
                           break;
-                case '^': // exponent
-                          stack.push(pow(y,x));
+                    case '^': // exponent
+                          mystack.push(pow(y,x));
                           break;
+                }
             }
-        }    
-    }
-    //returning the calculated result
-    return stack.top();
+        }
+
+        //returning the calculated result
+        return mystack.top();
     }
 };
 

@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstring>
 #include <bits/stdc++.h>
+#include <queue>
+
 using namespace std;
 
 
@@ -12,21 +14,27 @@ string infixToPostfix(string equation) {
     
     //declare a stack to hold character
     stack<char> st; 
+
     //declare a string variable for the result
     string postfixEquation;
  
     for(int i = 0; i < equation.length(); i++) {
+        
         //read each character form string equation
         char c = equation[i];
- 
-        // If the scanned character is
-        // an operand, add it to output string.
-        if(c >= '0' && c <= '9')
+        
+        // If the scanned character is an digit,
+        // check if next character is digit until get operator
+        // add it to output string.
+         while(isdigit(c)) {
             postfixEquation += c;
- 
+            i += 1;
+            c = equation[i];
+        }
+
         // If the scanned character is an
         // ‘(‘, push it to the stack.
-        else if(c == '(')
+        if(c == '(')
             st.push('(');
  
         // If the scanned character is an ‘)’,
@@ -40,7 +48,7 @@ string infixToPostfix(string equation) {
             }
             st.pop();
         }
- 
+        
         //If an operator is scanned
         else {
             //determine if stack is empty and compare the precdence
@@ -52,7 +60,11 @@ string infixToPostfix(string equation) {
             }
             //add current character to stack
             st.push(c);
+           
         }
+
+        //seprate operands 
+        postfixEquation += " ";
     }
  
     // Pop all the remaining elements from the stack

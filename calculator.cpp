@@ -5,12 +5,12 @@
 #include "infixToPostfix.h"
 using namespace std;
 
-//enum class Operation { Add, Subtract, Multiply, Divide };
-
 struct Calculator {
 
-    int calculate(string post_equation) {
-        stack <int> mystack;
+    //enum class Operation { Add = '+', Subtract = '-', Multiply = '*', Divide = '/', Exponent = '^' };
+
+    double calculate(string post_equation) {
+        stack <double> mystack;
 
         // loop to iterate through the equation
         for (int i = 0; i < post_equation.length()-1; i++)
@@ -22,28 +22,29 @@ struct Calculator {
             // if the character is an operand we push it in the stack
             else if (isdigit(post_equation[i]))
         {
-                int num=0;
+                string num;
              
                 //extract full number
-                while(isdigit(post_equation[i]))
+                while(isdigit(post_equation[i]) || post_equation[i] == '.')
                 {
-                    num = num * 10 + (int)(post_equation[i] - '0');
+                    num += post_equation[i];
                     i++;
                 }
                 i--;
-            
+
                 //push the element in the stack
-                mystack.push(num);
+                mystack.push(stod(num));
             }
             // if the character is an operator 
             else
             {
                 // pop the top two elements from the stack and save them in two integers
-                int x = mystack.top();
+                double x = mystack.top();
                 mystack.pop();
-                int y = mystack.top();
+                
+                double y = mystack.top();
                 mystack.pop();
-            
+                
                 //switch statement for operators
                 switch (post_equation[i])
                 {
@@ -80,7 +81,7 @@ int main() {
     printf("%s \n", "Enter your equation: .");
     cin >> equation;
     postfixEquation = infixToPostfix(equation);
-    printf("The result of the equation is: %d\n",c.calculate(postfixEquation));
+    printf("The result of the equation is: %g\n",c.calculate(postfixEquation));
     
     return 0;
 }

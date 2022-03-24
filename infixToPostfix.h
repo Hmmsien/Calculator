@@ -26,7 +26,7 @@ string infixToPostfix(string equation) {
         // If the scanned character is an digit,
         // check if next character is digit until get operator
         // add it to output string.
-         while(isdigit(c)) {
+         while(isdigit(c) || c == '.') {
             postfixEquation += c;
             i += 1;
             c = equation[i];

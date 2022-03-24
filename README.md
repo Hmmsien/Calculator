@@ -37,6 +37,13 @@ Enter your equation:
 5^2+11
 The result of the equation is: 36
 ```
+```sh
+$ make lab2
+g++ calculator.cpp -o calculator && ./calculator
+Enter your equation: . 
+4.3+2^4
+The result of the equation is: 20.3
+```
 
 # Tech/Framework used
 Understanding how stack WORK.\

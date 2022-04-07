@@ -2,7 +2,6 @@
 #include <cstring>
 #include <bits/stdc++.h>
 #include <queue>
-
 using namespace std;
 
 
@@ -17,16 +16,16 @@ string infixToPostfix(string equation) {
 
     //declare a string variable for the result
     string postfixEquation;
- 
+    
     for(int i = 0; i < equation.length(); i++) {
         
         //read each character form string equation
         char c = equation[i];
-        
+
         // If the scanned character is an digit,
         // check if next character is digit until get operator
         // add it to output string.
-         while(isdigit(c) || c == '.') {
+        while(isdigit(c) || c == '.') {
             postfixEquation += c;
             i += 1;
             c = equation[i];
@@ -35,8 +34,7 @@ string infixToPostfix(string equation) {
         // If the scanned character is an
         // ‘(‘, push it to the stack.
         if(c == '(')
-            st.push('(');
- 
+            st.push(c);
         // If the scanned character is an ‘)’,
         // pop and to output string from the stack
         // until an ‘(‘ is encountered.
@@ -80,7 +78,7 @@ string infixToPostfix(string equation) {
 int prec(char c) {
     if(c == '^')
         return 3;
-    else if(c == '/' || c=='*')
+    else if(c == '/' || c == '*')
         return 2;
     else if(c == '+' || c == '-')
         return 1;

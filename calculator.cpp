@@ -2,18 +2,19 @@
 #include <cstring>
 #include <bits/stdc++.h>
 #include <math.h>
+#include <string>
+#include <algorithm>
 #include "infixToPostfix.h"
 using namespace std;
 
-struct Calculator {
 
-    //enum class Operation { Add = '+', Subtract = '-', Multiply = '*', Divide = '/', Exponent = '^' };
+struct Calculator {
 
     double calculate(string post_equation) {
         stack <double> mystack;
 
         // loop to iterate through the equation
-        for (int i = 0; i < post_equation.length()-1; i++)
+        for (int i = 0; i < post_equation.length(); i++)
         {
             //if the character is blank space then continue
             if(post_equation[i] == ' ') {
@@ -78,11 +79,18 @@ int main() {
     string postfixEquation;
     Calculator c;
 
-    printf("%s \n", "Enter your equation: .");
-    cin >> equation;
+    while(equation != "quit") {
+    //get equation from user input
+    printf("%s \n", "Enter your equation (hit: enter quit to exit): ");
+    getline(cin, equation);
+    //Ignore the whiter space
+    equation.erase(remove(equation.begin(), equation.end(), ' '), equation.end());
+
+    //create postfix equation
     postfixEquation = infixToPostfix(equation);
-    printf("The result of the equation is: %g\n",c.calculate(postfixEquation));
-    
+
+    printf("The result of the equation is: %g\n\n",c.calculate(postfixEquation));    
+    }
     return 0;
 }
 
